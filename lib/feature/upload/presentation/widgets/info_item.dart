@@ -6,15 +6,17 @@ import 'package:valo/core/utils/sizebox_util.dart';
 import '../../data/models/info_item_model.dart';
 
 class InfoItem extends StatelessWidget {
-  const InfoItem({super.key,required this.infoItemModel,required this.index});
+  const InfoItem({super.key,required this.infoItemModel,required this.index,this.isColumn=false});
   final InfoItemModel infoItemModel;
   final int index;
+  final bool isColumn;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:index==2?EdgeInsets.zero:const EdgeInsets.only(right: 16),
+      padding:isColumn? EdgeInsets.only(bottom: 16): index==2?EdgeInsets.zero:const EdgeInsets.only(right: 16),
       child: Container(
+        width: isColumn? double.infinity:null,
         padding: const EdgeInsets.all(24),
         decoration: ShapeDecoration(
           color: const Color(0xFF18181B),

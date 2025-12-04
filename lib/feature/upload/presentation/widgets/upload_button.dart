@@ -15,7 +15,7 @@ class UploadButton extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12,vertical: 7),
         height:36 ,
-   width: 130,
+   width: 150,
         decoration: ShapeDecoration(
           color: AppColor.primaryColor,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
