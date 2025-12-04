@@ -1,5 +1,5 @@
-class Assets {
-  Assets._();
+class AppAssets {
+  AppAssets._();
 
 
   static const String imagesCalenderIcon = 'assets/images/calenderIcon.svg';

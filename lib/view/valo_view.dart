@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:valo/core/utils/context_util.dart';
+import 'package:valo/feature/home/presentation/desktop/desktop_app_bar.dart';
 import 'package:valo/view/valo_desktop_layout.dart';
 import 'package:valo/view/valo_mobile_view.dart';
-
 import '../core/theme/app_color.dart';
 import '../core/widget/adabtive_layout_widget.dart';
+
 
 
 class ValoView extends StatelessWidget {
@@ -12,6 +14,7 @@ class ValoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:context.screenWidth>800?PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight),child: DesktopAppBar()):null,
       backgroundColor: AppColor.anotherBlack,
       body: AdaptiveLayoutWidget(
         mobileLayout: (context) =>const ValoMobileView() ,
