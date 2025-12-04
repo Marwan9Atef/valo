@@ -5,6 +5,7 @@ import 'package:valo/view/valo_desktop_layout.dart';
 import 'package:valo/view/valo_mobile_view.dart';
 import '../core/theme/app_color.dart';
 import '../core/widget/adabtive_layout_widget.dart';
+import '../feature/upload/presentation/widgets/custom_nav_bar.dart';
 
 
 
@@ -16,9 +17,9 @@ class ValoView extends StatelessWidget {
     return Scaffold(
       appBar:context.screenWidth>800?PreferredSize(preferredSize: const Size.fromHeight(kToolbarHeight),child: DesktopAppBar()):null,
       backgroundColor: AppColor.anotherBlack,
+      bottomNavigationBar: context.screenWidth>800?null:const CustomNavBar(),
       body: AdaptiveLayoutWidget(
-        mobileLayout: (context) =>const ValoMobileView() ,
-        tabletLayout: (context) => const SizedBox(),
+        mobileLayout: (context) =>SafeArea(child: const ValoMobileView()) ,
         desktopLayout: (context) => ValoDesktopLayout() ,
       ),
 

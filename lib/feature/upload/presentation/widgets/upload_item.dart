@@ -29,7 +29,7 @@ class UploadItem extends StatelessWidget {
           children: [
             SvgPicture.asset(AppAssets.imagesUploadContainer,fit: BoxFit.scaleDown,width: 64,height: 64,),
             16.hight,
-            Text("Drag and drop your X-ray image here",style: AppStyles.styleRegular18(context),),
+            Text("Drag and drop your X-ray image here",style: AppStyles.styleRegular18(context),textAlign: TextAlign.center,),
             8.hight,
             Text("or click to browse files",style: AppStyles.styleRegular18(context),),
             15.hight,
