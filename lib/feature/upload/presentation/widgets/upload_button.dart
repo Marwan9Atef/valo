@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:valo/core/generated/assets.dart';
+import 'package:valo/core/theme/app_color.dart';
+import 'package:valo/core/theme/app_style.dart';
+import 'package:valo/core/utils/sizebox_util.dart';
+
+class UploadButton extends StatelessWidget {
+  const UploadButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){},
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 12,vertical: 7),
+        height:36 ,
+   width: 130,
+        decoration: ShapeDecoration(
+          color: AppColor.primaryColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+      SvgPicture.asset(AppAssets.imagesImageIcon,height: 15,width: 15,fit: BoxFit.scaleDown,),
+      16.width,
+      FittedBox(fit: BoxFit.scaleDown,child: Text("Select File",style: AppStyles.styleRegular14(context).copyWith(color: AppColor.white),)),
+
+        ],
+
+
+      ),
+
+      ),
+    );
+  }
+}
