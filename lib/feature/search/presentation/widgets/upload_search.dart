@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:valo/core/theme/app_color.dart';
-
+import 'package:valo/core/utils/context_util.dart';
 import '../../../../core/theme/search_delgate_theme.dart';
+import '../screens/desktop/desktop_search_item_list.dart';
+
 
 class UploadSearch extends SearchDelegate {
   @override
@@ -33,15 +35,22 @@ class UploadSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return const Scaffold(
-
+    return Scaffold(
+      body: DesktopSearchItemList(),
 
     );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+
+      body:context.screenWidth<800? Column(
+        children: [
+
+        ],
+      ): DesktopSearchItemList(),
+    );
   }
   
   
