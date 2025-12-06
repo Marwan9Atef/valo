@@ -12,13 +12,16 @@ class UploadMobileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const UploadScreen(),
-          32.hight,
-          const InfoItemColumn(),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 15,right: 15,top: 16),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const UploadScreen(),
+            32.hight,
+            const InfoItemColumn(),
+          ],
+        ),
       ),
     );
   }

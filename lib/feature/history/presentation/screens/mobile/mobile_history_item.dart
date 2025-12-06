@@ -4,8 +4,9 @@ import '../../../../../core/generated/assets.dart';
 import '../../../../../core/theme/app_color.dart';
 import '../../../../../core/theme/app_style.dart';
 
-class MobileSearchItem extends StatelessWidget {
-  const MobileSearchItem({super.key});
+
+class MobileHistoryItem extends StatelessWidget {
+  const MobileHistoryItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +20,16 @@ class MobileSearchItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadiusGeometry.all(
-               Radius.circular(14),
-            ),
+              borderRadius: BorderRadiusGeometry.all(
+                Radius.circular(14),
+              ),
               clipBehavior: Clip.antiAlias,
               child: Image.asset(AppAssets.imagesDemoRayImage,fit: BoxFit.cover,width: double.infinity,)),
           10.hight,
+
               FittedBox(fit: BoxFit.scaleDown,child: Text('Chest X-Ray - Pneumonia Pattern',style: AppStyles.styleRegular20(context),)),
+
+
           6.hight,
           FittedBox(fit: BoxFit.scaleDown,child: Text("Right lower lobe consolidation consistent with pneumonia",style: AppStyles.styleRegular16(context).copyWith(color: AppColor.gray),)),
 

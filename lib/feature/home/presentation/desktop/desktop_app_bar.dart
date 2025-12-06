@@ -1,48 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theme/app_style.dart';
 import '../../data/item_model.dart';
+import '../cubit/page_cubit.dart';
 import 'app_bar_item.dart';
 
-class DesktopAppBar extends StatefulWidget {
+class DesktopAppBar extends StatelessWidget {
   const DesktopAppBar({super.key});
 
-  @override
-  State<DesktopAppBar> createState() => _DesktopAppBarState();
-}
 
-class _DesktopAppBarState extends State<DesktopAppBar> {
-  int currentTab=0;
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: Text("X-Ray Search",style: AppStyles.styleRegular20(context),
+    return BlocBuilder<PageCubit, int>(
+      builder: (context, currentTab) {
+        return AppBar(
+          title: Text("X-Ray Search", style: AppStyles.styleRegular20(context),
 
 
-      ),
-      actions: List.generate(2, (index) => InkWell(onTap: () {
-        if(currentTab==index)return;
-        currentTab=index;
-        setState(() {
+          ),
+          actions: List.generate(2, (index) =>
+              InkWell(onTap: () {
+                if (currentTab == index) return;
+                context.read<PageCubit>().setValue(index);
+              },
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onHighlightChanged: (isHighlight) {
 
-        });
+
+                  },
 
 
+                  child: AppBarItem(isActive: currentTab == index,
+                    item: ItemModel.items[index],))),
 
+
+        );
       },
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-        onHighlightChanged: (isHighlight) {
-
-
-        },
-
-
-      child: AppBarItem(isActive: currentTab==index,item: ItemModel.items[index],))),
-
-
-
-
     );
   }
 }

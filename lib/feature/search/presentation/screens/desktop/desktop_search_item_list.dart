@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../../core/widget/desktop_list.dart';
 import 'desktop_search_item.dart' show DesktopSearchItem;
 
 class DesktopSearchItemList extends StatelessWidget {
@@ -6,6 +7,8 @@ class DesktopSearchItemList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, index) => DesktopSearchItem(),itemCount: 3,);
+    return DesktopList(child:DesktopSearchItem() ,);
   }
 }
+
+

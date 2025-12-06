@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:valo/feature/home/presentation/cubit/page_cubit.dart';
 
 import '../../data/models/nav_model.dart';
 import 'nav_bar_item.dart';
@@ -11,22 +13,27 @@ class CustomNavBar extends StatefulWidget {
 }
 
 class _CustomNavBarState extends State<CustomNavBar> {
-  int _currentPage=0;
+
+
   @override
   Widget build(BuildContext context) {
-    return NavigationBar(
-      selectedIndex: _currentPage,
-    onDestinationSelected: (index){
-      if(index==_currentPage){
-        return;
-      }
-      setState(() {
-        _currentPage=index;
-      });
+    return BlocBuilder<PageCubit, int>(
+      builder: (context, currentTab) {
+        return NavigationBar(
+          selectedIndex: currentTab,
+          onDestinationSelected: (index) {
+            if (index == currentTab) {
+              return;
+            }
+            context.read<PageCubit>().setValue(index);
 
-    },
-      destinations: NavModel.navList.map((e) => NavBarItem(navModel: e)).toList(),
+          },
+          destinations: NavModel.navList
+              .map((e) => NavBarItem(navModel: e))
+              .toList(),
 
+        );
+      },
     );
   }
 }

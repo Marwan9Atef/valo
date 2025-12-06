@@ -10,13 +10,17 @@ class UploadDesktopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          const UploadScreen(),
-          32.hight,
-          const InfoItemRow(),
-        ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 63,right: 63,top: 16),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const UploadScreen(),
+            32.hight,
+            const InfoItemRow(),
+          ],
+        ),
       ),
     );
   }
