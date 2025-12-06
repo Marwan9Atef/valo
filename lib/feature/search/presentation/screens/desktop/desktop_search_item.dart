@@ -12,6 +12,7 @@ class DesktopSearchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+      padding: const EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
         color:const Color(0xff18181B),
         borderRadius: BorderRadius.circular(14),
@@ -20,13 +21,12 @@ class DesktopSearchItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
-            borderRadius: BorderRadiusGeometry.only(
-              topLeft: Radius.circular(14),
-              bottomLeft: Radius.circular(14),
+            borderRadius: BorderRadiusGeometry.all(
+          Radius.circular(14)
             ),
               clipBehavior: Clip.antiAlias,
               child: Image.asset(AppAssets.imagesDemoRayImage,fit: BoxFit.fill,)),
-           24.width,
+           16.width,
            Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

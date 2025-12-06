@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:valo/core/theme/app_color.dart';
+import 'package:valo/core/theme/app_style.dart';
 import 'package:valo/core/utils/context_util.dart';
 import '../../../../core/theme/search_delgate_theme.dart';
 import '../screens/desktop/desktop_search_item_list.dart';
+import '../screens/mobile/mobile_search_item_list.dart';
 
 
 class UploadSearch extends SearchDelegate {
@@ -35,24 +37,41 @@ class UploadSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Scaffold(
-      body: DesktopSearchItemList(),
-
-    );
+    return SearchView();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return Scaffold(
-
-      body:context.screenWidth<800? Column(
-        children: [
-
-        ],
-      ): DesktopSearchItemList(),
-    );
+    return SearchView();
   }
   
   
   
+}
+
+class SearchView extends StatelessWidget {
+  const SearchView({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body:SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 16,top: 16,bottom: 16),
+              child: Text("Search Results",style: AppStyles.styleRegular36(context),),
+            ),
+            context.screenWidth<800? Expanded(child: MobileSearchItemList()): Expanded(child: DesktopSearchItemList()),
+
+
+          ],
+
+        ),
+      )
+    );
+  }
 }
