@@ -8,8 +8,9 @@ class AuthContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isMobile = context.screenWidth < 800 ;
+
     return Container(
-      width: isMobile ? double.infinity : context.screenWidth * 0.6,
+      width: isMobile ? double.infinity : context.screenWidth * 0.65,
       padding: const EdgeInsets.all(23),
       decoration: ShapeDecoration(
         color: const Color(0xFF18181B),

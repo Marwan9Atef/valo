@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:valo/core/routes/route_center.dart';
-import 'package:valo/feature/auth/presentation/view/login_view.dart';
+import 'package:valo/feature/auth/presentation/screens/login_screen.dart';
 import 'package:valo/view/valo_view.dart';
+
+import '../../feature/auth/presentation/screens/register_screen.dart';
 
 
 class AppRouter {
@@ -12,11 +14,22 @@ class AppRouter {
         GoRoute(
           path: RouteCenter.login,
           builder: (context, state) {
-            return const LoginView();
+            return const LoginScreen();
           },
 
 
 
+        ),
+        GoRoute(
+          path: RouteCenter.register,
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              child: const RegisterScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) =>
+                  FadeTransition(opacity: animation, child: child),
+            );
+          },
         ),
         GoRoute(
           path: RouteCenter.view,
