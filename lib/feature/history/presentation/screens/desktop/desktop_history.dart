@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:valo/core/utils/sizebox_util.dart';
 import '../../../../../core/widget/desktop_list.dart';
 import '../../widgets/history_header.dart';
 import 'disktop_history_item.dart';
