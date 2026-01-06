@@ -1,7 +1,10 @@
 class AppAssets {
   AppAssets._();
 
-
+  static const String logo = 'assets/images/logo.svg';
+  static const String profile = 'assets/images/profile.svg';
+  static const String email = 'assets/images/email.svg';
+  static const String password = 'assets/images/password.svg';
   static const String imagesCalenderIcon = 'assets/images/calenderIcon.svg';
   static const String imagesDemoRayImage = 'assets/images/rayDemo.png';
   static const String imagesHistoryIcon = 'assets/images/historyIcon.svg';
@@ -12,7 +15,6 @@ class AppAssets {
   static const String imagesUploadIcon = 'assets/images/uploadIcon.svg';
   static String imagesDetailsSvg='assets/images/details.svg';
   static String imagesDownloadSvg='assets/images/download.svg';
-
   static String detailsContainer='assets/images/detialsContainer.svg';
 
 }
