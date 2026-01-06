@@ -11,23 +11,26 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      curve: Curves.easeInOutQuint,
-      duration: Duration(milliseconds: 500),
-      width:  isLoading
-          ? context.screenWidth * 0.4:
-          context.screenWidth,
-      height: 48,
-      decoration: ShapeDecoration(
-        gradient: LinearGradient(
-          begin: Alignment(0.00, 0.50),
-          end: Alignment(1.00, 0.50),
-          colors: [AppColor.lightBlue, AppColor.pruple],
+    return GestureDetector(
+      onTap: onPressed,
+      child: AnimatedContainer(
+        curve: Curves.easeInOutQuint,
+        duration: Duration(milliseconds: 500),
+        width:  isLoading
+            ? context.screenWidth * 0.4:
+            context.screenWidth,
+        height: 48,
+        decoration: ShapeDecoration(
+          gradient: LinearGradient(
+            begin: Alignment(0.00, 0.50),
+            end: Alignment(1.00, 0.50),
+            colors: [AppColor.lightBlue, AppColor.pruple],
+          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-child: Center(child: Text(text,style: AppStyles.styleRegular14(context).copyWith(color: AppColor.white),)),
+      child: Center(child: Text(text,style: AppStyles.styleRegular14(context).copyWith(color: AppColor.white),)),
 
+      ),
     );
   }
 }

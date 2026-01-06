@@ -55,7 +55,9 @@ class LoginScreen extends StatelessWidget {
                           context.push(RouteCenter.forget);
                         },child: Align(alignment: Alignment.centerRight,child: Text("Forgot password?",style: AppStyles.styleRegular14(context).copyWith(color:AppColor.blue ),))),
                         20.hight,
-                        CustomButton(text: "Sign In", onPressed: (){}),
+                        CustomButton(text: "Sign In", onPressed: (){
+                          context.pushReplacement(RouteCenter.view);
+                        }),
                         Divider(
                           height: 40,
                           color: const Color(0xFF27272A),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../core/generated/assets.dart';
+
 import '../../../../core/routes/route_center.dart';
 import '../../../../core/theme/app_style.dart';
 import '../../../../core/utils/context_util.dart';
 import '../../../../core/utils/sizebox_util.dart';
 import '../../../../core/widget/custom_button.dart';
-import '../../../../core/widget/custom_text_form_filed.dart';
 import '../shared/auth_container.dart';
 import '../shared/auth_header.dart';
+import '../widget/code/code_form.dart';
+import '../widget/code/resend_button.dart';
 
-
-class ForgetScreen extends StatelessWidget {
-  const ForgetScreen({super.key});
+class CodeScreen extends StatelessWidget {
+  const CodeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +26,19 @@ class ForgetScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const AuthHeader(title: "Forgot Password", subtitle: "We'll send you an OTP to reset your password"),
+                const AuthHeader(title: "Verify OTP", subtitle: "Enter the 6-digit code sent to your email"),
                 AuthContainer(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text("Email Address",style: AppStyles.styleRegular14(context),),
-                        8.hight,
-                        CustomTextFormField(
-                          textInputType: TextInputType.emailAddress,
-                          hintText: "Email Address",
-                          prefixIconPath: AppAssets.email,
-                        ),
-                       20.hight,
-                        CustomButton(text: "Send OTP", onPressed: (){
-                          context.go(RouteCenter.code);
-
+                        Text("Enter OTP",style: AppStyles.styleRegular14(context),),
+                        20.hight,
+                        const CodeForm(),
+                        20.hight,
+                        const ResendButton(),
+                        20.hight,
+                        CustomButton(text: "Verify OTP", onPressed: (){
+                          context.go(RouteCenter.reset);
                         }),
 
 
@@ -66,3 +63,4 @@ class ForgetScreen extends StatelessWidget {
     );
   }
 }
+

@@ -56,7 +56,9 @@ class RegisterScreen extends StatelessWidget {
                           prefixIconPath: AppAssets.password,
                         ),
                         20.hight,
-                        CustomButton(text: "Create Account", onPressed: (){}),
+                        CustomButton(text: "Create Account", onPressed: (){
+                          context.pushReplacement(RouteCenter.view);
+                        }),
                         Divider(
                           height: 40,
                           color: const Color(0xFF27272A),
