@@ -7,7 +7,7 @@ import 'core/init/observer_init.dart';
 void main() {
   observerInit();
   runApp(DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => const Valo()));
 }
 
