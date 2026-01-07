@@ -10,10 +10,12 @@ import 'core/init/observer_init.dart';
 void main() async{
 
   WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
+
   const Size minimumSize = Size(600, 750);
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    await windowManager.ensureInitialized();
     await windowManager.setMinimumSize(minimumSize);
+
   }
   observerInit();
   runApp(DevicePreview(
