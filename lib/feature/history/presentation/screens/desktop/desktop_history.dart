@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import '../../../../../core/widget/desktop_list.dart';
 import '../../widgets/history_header.dart';
-import 'disktop_history_item.dart';
+import 'desktop_history_list.dart';
+
 
 class DesktopHistory extends StatelessWidget {
   const DesktopHistory({super.key});
@@ -16,7 +16,7 @@ class DesktopHistory extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
          const HistoryHeader(),
-            Expanded(child: DesktopList(child: DesktopHistoryItem(),))
+            Expanded(child: DesktopHistoryList())
 
           ]
 
