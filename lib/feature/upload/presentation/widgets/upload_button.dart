@@ -6,12 +6,12 @@ import 'package:valo/core/theme/app_style.dart';
 import 'package:valo/core/utils/sizebox_util.dart';
 
 class UploadButton extends StatelessWidget {
-  const UploadButton({super.key});
-
+  const UploadButton({super.key,required this.onTap});
+final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){},
+    return InkWell(
+      onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 12,vertical: 7),
         height:36 ,

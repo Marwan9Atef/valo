@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:valo/core/theme/app_color.dart';
 import 'package:valo/core/theme/app_style.dart';
 import 'package:valo/core/utils/sizebox_util.dart';
@@ -11,7 +11,7 @@ class DesktopClear extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: (){},
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),

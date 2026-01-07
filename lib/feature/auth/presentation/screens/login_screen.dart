@@ -10,13 +10,21 @@ import 'package:valo/feature/auth/presentation/shared/auth_container.dart';
 import '../../../../../core/generated/assets.dart';
 import '../../../../../core/widget/custom_text_form_filed.dart';
 import '../../../../core/routes/route_center.dart';
+import '../../../../core/utils/validator.dart';
 import '../shared/auth_header.dart';
 import '../shared/nav_text_button.dart';
 
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +34,9 @@ class LoginScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 16,horizontal: 16),
           child: Center(
             heightFactor:context.screenHeight>1080?2:1.1,
-            child: Column(
+            child: Form(
+              key: _formKey,
+              child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const AuthHeader(title: "Welcome Back", subtitle: "Sign in to your medical account"),
@@ -40,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                           textInputType: TextInputType.emailAddress,
                           hintText: "Email Address",
                           prefixIconPath: AppAssets.email,
+                          validator: (value) => Validator.validateField(value, 'email'),
                         ),
                         20.hight,
                         Text("Password",style: AppStyles.styleRegular14(context),),
@@ -49,6 +60,7 @@ class LoginScreen extends StatelessWidget {
                           hintText: "Password",
                           isPassword: true,
                           prefixIconPath: AppAssets.password,
+                          validator: (value) => Validator.validateField(value, 'password'),
                         ),
                         20.hight,
                         GestureDetector(onTap: (){
@@ -56,7 +68,10 @@ class LoginScreen extends StatelessWidget {
                         },child: Align(alignment: Alignment.centerRight,child: Text("Forgot password?",style: AppStyles.styleRegular14(context).copyWith(color:AppColor.blue ),))),
                         20.hight,
                         CustomButton(text: "Sign In", onPressed: (){
-                          context.pushReplacement(RouteCenter.view);
+                          if (_formKey.currentState!.validate()) {
+                            context.pushReplacement(RouteCenter.view);
+                          }
+
                         }),
                         Divider(
                           height: 40,
@@ -86,6 +101,7 @@ class LoginScreen extends StatelessWidget {
       )
       ),
 
+    )
     );
   }
 }

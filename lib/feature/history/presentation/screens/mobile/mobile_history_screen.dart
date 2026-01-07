@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:valo/core/utils/sizebox_util.dart';
-import 'package:valo/core/widget/mobile_list.dart';
-import 'package:valo/feature/history/presentation/screens/mobile/mobile_history_item.dart';
-
+import '../../../../../core/utils/sizebox_util.dart';
 import '../../widgets/history_header.dart';
+import 'mobile_history_list.dart';
 
 class MobileHistoryScreen extends StatelessWidget {
   const MobileHistoryScreen({super.key});
@@ -17,7 +15,7 @@ class MobileHistoryScreen extends StatelessWidget {
           children: [
            const HistoryHeader(),
             16.hight,
-            Expanded(child: MobileList(child: MobileHistoryItem()))
+            Expanded(child: MobileHistoryList())
 
 
           ],

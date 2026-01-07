@@ -8,6 +8,7 @@ import 'package:valo/view/valo_view.dart';
 import '../../feature/auth/presentation/screens/forget_screen.dart';
 import '../../feature/auth/presentation/screens/register_screen.dart';
 import '../../feature/auth/presentation/screens/reset_screen.dart';
+import '../widget/full_screen_image.dart';
 
 
 class AppRouter {
@@ -85,6 +86,18 @@ class AppRouter {
           pageBuilder: (context, state) {
             return CustomTransitionPage(
               child: const ResetScreen(),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) =>
+                  FadeTransition(opacity: animation, child: child),
+            );
+          },
+        ),
+        GoRoute(
+          path: RouteCenter.fullScreenImage,
+          pageBuilder: (context, state) {
+            final String imagePath=state.extra as String;
+            return CustomTransitionPage(
+              child: FullScreenImageViewer(imageUrl:imagePath,),
               transitionsBuilder:
                   (context, animation, secondaryAnimation, child) =>
                   FadeTransition(opacity: animation, child: child),

@@ -15,7 +15,7 @@ class DesktopAppBar extends StatelessWidget {
     return BlocBuilder<PageCubit, int>(
       builder: (context, currentTab) {
         return AppBar(
-          title: Text("X-Ray Search", style: AppStyles.styleRegular20(context),
+          title: Text("Medical Image Search", style: AppStyles.styleRegular20(context),
 
 
           ),
