@@ -6,5 +6,6 @@ class RouteCenter {
   static const String code = "/code";
   static const String reset = "/reset";
   static const String forget = "/forget";
+  static const String fullScreenImage = "/fullScreenImage";
 
 }

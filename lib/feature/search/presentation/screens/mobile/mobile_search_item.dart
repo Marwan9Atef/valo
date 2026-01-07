@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:valo/core/utils/sizebox_util.dart';
 import '../../../../../core/dummy/model/ray_model.dart';
+import '../../../../../core/routes/route_center.dart';
 import '../../../../../core/theme/app_color.dart';
 import '../../../../../core/theme/app_style.dart';
 
@@ -20,12 +22,18 @@ class MobileSearchItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
-            borderRadius: BorderRadiusGeometry.all(
-               Radius.circular(14),
-            ),
-              clipBehavior: Clip.antiAlias,
-              child: Image.asset(rayModel.imagePath,fit: BoxFit.cover,width: double.infinity,)),
+          InkWell(
+            onTap: (){
+              context.push(RouteCenter.fullScreenImage,extra: rayModel.imagePath);
+            },
+
+            child: ClipRRect(
+              borderRadius: BorderRadiusGeometry.all(
+                 Radius.circular(14),
+              ),
+                clipBehavior: Clip.antiAlias,
+                child: Image.asset(rayModel.imagePath,fit: BoxFit.cover,width: double.infinity,)),
+          ),
           10.hight,
              Text(rayModel.title,style: AppStyles.styleRegular20(context),),
           6.hight,

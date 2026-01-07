@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:valo/core/theme/app_color.dart';
 import 'package:valo/core/theme/app_style.dart';
 import 'package:valo/core/utils/sizebox_util.dart';
 import '../../../../../core/dummy/model/ray_model.dart';
 import '../../../../../core/generated/assets.dart';
+import '../../../../../core/routes/route_center.dart';
 
 class DesktopSearchItem extends StatelessWidget {
   const DesktopSearchItem({super.key,required this.rayModel});
@@ -39,22 +41,27 @@ class DesktopSearchItem extends StatelessWidget {
                 Text(rayModel.description,style: AppStyles.styleRegular16(context).copyWith(color: AppColor.gray),),
                 15.hight,
                 IntrinsicWidth(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 12),
-                   decoration: ShapeDecoration(
-                   color: AppColor.primaryColor,
-                   shape: RoundedRectangleBorder(
-                   borderRadius: BorderRadius.circular(10),
-                   ),
-                   ),
-                    child: Row(
-                      children: [
-                        SvgPicture.asset(AppAssets.imagesDetailsSvg,fit: BoxFit.scaleDown,height:16,width: 16,),
-                        8.width,
-                        Text("View Details",style: AppStyles.styleRegular14(context).copyWith(color: AppColor.white)),
-                      ],
-                    ),
-                   ),
+                  child: InkWell(
+                    onTap: (){
+                      context.push(RouteCenter.fullScreenImage,extra: rayModel.imagePath);
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 12),
+                     decoration: ShapeDecoration(
+                     color: AppColor.primaryColor,
+                     shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(10),
+                     ),
+                     ),
+                      child: Row(
+                        children: [
+                          SvgPicture.asset(AppAssets.imagesDetailsSvg,fit: BoxFit.scaleDown,height:16,width: 16,),
+                          8.width,
+                          Text("View Details",style: AppStyles.styleRegular14(context).copyWith(color: AppColor.white)),
+                        ],
+                      ),
+                     ),
+                  ),
                 )
 
 

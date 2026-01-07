@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+import 'package:valo/core/routes/route_center.dart';
 import 'package:valo/core/theme/app_color.dart';
 import 'package:valo/core/theme/app_style.dart';
 import 'package:valo/core/utils/sizebox_util.dart';
@@ -41,9 +43,19 @@ class DesktopHistoryItem extends StatelessWidget {
                 15.hight,
                 Row(
                   children: [
-                    SvgPicture.asset(AppAssets.detailsContainer,fit: BoxFit.scaleDown,height:36,width: 36,),
+                    InkWell(
+                        onTap: (){
+context.push(
+  RouteCenter.fullScreenImage,
+  extra: rayModel.imagePath,
+);
+                        },
+                        child: SvgPicture.asset(AppAssets.detailsContainer,fit: BoxFit.scaleDown,height:36,width: 36,)),
                     12.width,
-                    RemoveContainer(),
+                    RemoveContainer(
+                      onTap: (){
+                      },
+                    ),
 
 
 

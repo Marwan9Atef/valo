@@ -42,6 +42,7 @@ dependencies:
   pin_code_fields: ^8.0.1
   otp_resend_timer: ^1.0.0
   window_manager: ^0.5.1
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:

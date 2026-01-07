@@ -13,9 +13,9 @@ class UploadScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-      Text("Upload X-Ray",style: AppStyles.styleRegular36(context),),
+      Text("Upload Medical Image",style: AppStyles.styleRegular36(context),),
       8.hight,
-      Text("Upload an X-ray image to search for similar cases",style: AppStyles.styleRegular16(context).copyWith(color: AppColor.gray),),
+      Text("Upload an medical image to search for similar cases",style: AppStyles.styleRegular16(context).copyWith(color: AppColor.gray),),
         34.hight,
      const BeforeSearch(),
      23.hight,
