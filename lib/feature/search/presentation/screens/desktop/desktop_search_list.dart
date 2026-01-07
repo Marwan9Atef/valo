@@ -7,12 +7,16 @@ class DesktopSearchList extends StatelessWidget {
 
   const DesktopSearchList({
     super.key,
+    this.searchBuildResults=const[],
+
 
   });
+  final List<RayModel> searchBuildResults;
+
 
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, index) => DesktopSearchItem(rayModel: RayModel.rayList[index],),itemCount: RayModel.rayList.length,);
+    return ListView.builder(itemBuilder: (context, index) => DesktopSearchItem(rayModel: searchBuildResults[index] ),itemCount:searchBuildResults.length,);
   }
 }

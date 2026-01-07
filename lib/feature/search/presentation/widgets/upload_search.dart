@@ -4,10 +4,12 @@ import 'package:valo/core/theme/app_style.dart';
 import 'package:valo/core/utils/context_util.dart';
 import 'package:valo/feature/search/presentation/screens/desktop/desktop_search_list.dart';
 import 'package:valo/feature/search/presentation/screens/mobile/mobile_search_list.dart';
+import '../../../../core/dummy/model/ray_model.dart';
 import '../../../../core/theme/search_delgate_theme.dart';
 
 
 class UploadSearch extends SearchDelegate {
+
   @override
   String get searchFieldLabel => "Or search by keywords...";
   @override
@@ -37,12 +39,18 @@ class UploadSearch extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return SearchView();
+    final List<RayModel> searchBuildResults = RayModel.rayList
+        .where((item) => item.title.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    return SearchView(searchBuildResults: searchBuildResults);
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return SearchView();
+    final List<RayModel> searchBuildResults = RayModel.rayList
+        .where((item) => item.title.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+    return SearchView(searchBuildResults: searchBuildResults);
   }
   
   
@@ -52,26 +60,30 @@ class UploadSearch extends SearchDelegate {
 class SearchView extends StatelessWidget {
   const SearchView({
     super.key,
+    required this.searchBuildResults,
   });
+
+  final List<RayModel> searchBuildResults;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16,top: 16,bottom: 16),
-              child: Text("Search Results",style: AppStyles.styleRegular36(context),),
-            ),
-            context.screenWidth<800? Expanded(child: MobileSearchList()): Expanded(child: DesktopSearchList()),
+        body:SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 16,top: 16,bottom: 16),
+                child: Text("Search Results",style: AppStyles.styleRegular36(context),),
+              ),
+              context.screenWidth<800? Expanded(child: MobileSearchList(searchBuildResults: searchBuildResults,)): Expanded(child: DesktopSearchList(searchBuildResults: searchBuildResults,)),
 
 
-          ],
+            ],
 
-        ),
-      )
+          ),
+        )
     );
   }
 }
+
