@@ -24,8 +24,9 @@ class DesktopHistoryItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ClipRRect(
-              borderRadius: BorderRadiusGeometry.all(
-                  Radius.circular(14)
+              borderRadius: BorderRadiusGeometry.only(
+                 topLeft: Radius.circular(14),
+                 bottomLeft: Radius.circular(14),
               ),
               clipBehavior: Clip.antiAlias,
               child: Image.asset(rayModel.imagePath,fit: BoxFit.fill,width: 200,height: 200,)),
