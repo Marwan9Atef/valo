@@ -42,7 +42,7 @@ class _ResetScreenState extends State<ResetScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Email Address",style: AppStyles.styleRegular14(context),),
+                          Text("New Password",style: AppStyles.styleRegular14(context),),
                           8.hight,
                           CustomTextFormField(
                             textInputType: TextInputType.visiblePassword,
@@ -53,7 +53,7 @@ class _ResetScreenState extends State<ResetScreen> {
                             controller: _passwordController,
                           ),
                           20.hight,
-                          Text("Password",style: AppStyles.styleRegular14(context),),
+                          Text("Confirm Password",style: AppStyles.styleRegular14(context),),
                           8.hight,
                           CustomTextFormField(
                             textInputType: TextInputType.visiblePassword,

@@ -43,6 +43,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       keyboardType: widget.textInputType,
       maxLines: widget.maxLines,
       obscureText: isObscure,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       cursorColor: AppColor.primaryColor,
       style: AppStyles.styleRegular16(context).copyWith(
         color: AppColor.white,

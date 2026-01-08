@@ -16,7 +16,7 @@ class UploadScreen extends StatelessWidget {
       children: [
       Text("Upload Medical Image",style: AppStyles.styleRegular36(context),),
       8.hight,
-      Text("Upload an medical image to search for similar cases",style: AppStyles.styleRegular16(context).copyWith(color: AppColor.gray),),
+      Text("Upload a medical image to search for similar cases",style: AppStyles.styleRegular16(context).copyWith(color: AppColor.gray),),
         34.hight,
      const BeforeSearch(),
      23.hight,
